@@ -38,6 +38,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { baseURL } from './shared/baseurl';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
 
+import { RestangularModule, Restangular } from 'ngx-restangular';
+import { RestangularConfigFactory } from './shared/restConfig';
+
 
 
 @NgModule({
@@ -73,6 +76,7 @@ import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
     MatProgressSpinnerModule,
     MatSliderModule,
     HttpClientModule,
+    RestangularModule.forRoot(RestangularConfigFactory),
     
   ],
   providers: [DishService, 

@@ -14,10 +14,14 @@ export class AboutComponent implements OnInit {
   constructor( private leaderservice: LeaderService ) { }
 
   leaders: Leader[];
+  errmess: string;
+  leaderErrMess: string;
+
 
   ngOnInit() {
 
-    this.leaderservice.getLeaders().subscribe(leaders => this.leaders = leaders);
+    this.leaderservice.getLeaders().subscribe(leaders => this.leaders = leaders,
+      errmess => this.leaderErrMess = <any>errmess.message);
     
   }
 
